@@ -1,8 +1,5 @@
 # S.A.R.A
 Semi-Automated Robotic Arm
-
-# Project Name
-
 [Add a brief description of the project]
 
 ## Table of Contents
