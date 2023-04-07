@@ -27,7 +27,7 @@ Semi-Automated Robotic Arm
 
 ## License
 
-[Add the license that applies to your project and any other relevant legal information]
+MIT License
 
 ## Sources
 
