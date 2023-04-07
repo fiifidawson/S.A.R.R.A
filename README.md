@@ -12,6 +12,7 @@ Semi-Automated Robotic Arm
 - [Contributing](#contributing)
 - [License](#license)
 - [Sources](#sources)
+- [Documentation](#documentation)
 
 ## Installation
 
@@ -27,7 +28,7 @@ Semi-Automated Robotic Arm
 
 ## License
 
-[Add the license that applies to your project and any other relevant legal information]
+MIT License
 
 ## Sources
 
@@ -39,8 +40,13 @@ The following sources were used in the creation of this project:
 
 The following YouTube videos were referenced in the creation of this project:
 
-- Video 1: [Title](link to video)
-- Video 2: [Title](link to video)
-- Video 3: [Title](link to video) 
+- Video 1: [https://youtu.be/XZ63bZIfIoc](https://youtu.be/XZ63bZIfIoc)
+- Video 2: [DIY Arduino Robot Arm - Controlled by Hand Gestures | Full Tutorial](https://youtu.be/F0ZvF-FbCr0) 
+- Video 3: [Robot Arm Arduino Tutorial](https://youtu.be/gmz7eOB-tCg?list=PLV6c2pjMaD-BgyZCI-ZzW3UFjEemPFAfD)
+
+## Documentation
+
+[View the project documentation in Google Docs](https://docs.google.com/document/d/DOCUMENT_ID/edit)
+
 
 
