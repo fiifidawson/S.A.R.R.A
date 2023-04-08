@@ -34,6 +34,7 @@ The following sources were used in the creation of this project:
 - File 1: [zezarandrade](https://projecthub.arduino.cc/zezarandrade/c9d53b71-0422-41dd-bda1-00d4899583f0)
 - File 2: [Eben Kouao](https://github.com/EbenKouao/arduino-robot-arm)
 - File 3: [Murtaza](https://youtu.be/gmz7eOB-tCg?list=PLV6c2pjMaD-BgyZCI-ZzW3UFjEemPFAfD)
+- File 4: [Gael Langevin](https://inmoov.fr/hand-and-forarm/?doing_wp_cron=1680974540.8794040679931640625000)
 
 The following YouTube videos were referenced in the creation of this project:
 
