@@ -1,6 +1,6 @@
 # S.A.R.A
-Semi-Automated Robotic Arm
-[Add a brief description of the project]
+Semi-Automated Robotic Arm:
+S.A.R.A. is designed to mimic the movement of a human arm and hand. It has four degrees of freedom and can move in multiple directions. The robotic arm is equipped with sensors and a camera that detect hand and arm movements. These movements are then processed by a machine learning algorithm that maps the gestures to specific movements of the arm and fingers.
 
 ## Table of Contents
 
