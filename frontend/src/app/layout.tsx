@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "S.A.R.R.A ",
+  title: "S.A.R.R.A",
   description:
     "S.A.R.R.A is a semi-autonomous rehabilitation robotic arm that mimics human movement using gesture recognition and machine learning.",
+  icons: { icon: "/sarra.svg" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
