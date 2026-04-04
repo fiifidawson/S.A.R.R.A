@@ -1,94 +1,59 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-/**
- * Timeline items — add/remove entries freely.
- *
- * To add media, set `media` to one of:
- *   { type: "image", src: "/media/your-file.jpg", alt: "description" }
- *   { type: "video", src: "/media/your-file.mp4" }
- *   { type: "youtube", id: "VIDEO_ID" }
- */
-const entries: TimelineEntry[] = [
+const entries = [
   {
-    date: "2023",
-    title: "Initial prototype",
-    description:
-      "First mechanical assembly of the arm structure. Sourced servo motors, 3D-printed the forearm and hand components based on the InMoov open-source design.",
-    media: null,
+    label: "The Spark",
+    note: "Where it all started. Photos are on the drive... somewhere.",
   },
   {
-    date: "2023",
-    title: "Servo calibration",
-    description:
-      "Wired up the Arduino and ran the first potentiometer-based control tests. Mapped sensor values to motor directions for basic bidirectional movement.",
-    media: null,
+    label: "Late Nights",
+    note: "Had a cool video of this. Laptop thief has it now.",
   },
   {
-    date: "2023",
-    title: "Gesture recognition",
-    description:
-      "Integrated the camera module and began training the gesture recognition pipeline. The ML model learns to map hand positions to arm movements in real time.",
-    media: null,
+    label: "First Moves",
+    note: "The model works, the visuals can wait.",
   },
   {
-    date: "2024",
-    title: "Full arm demo",
-    description:
-      "End-to-end demonstration of gesture-controlled arm movement across all four degrees of freedom — the first fully integrated run of the system.",
-    media: null,
+    label: "Pieces Together",
+    note: "Product > pictures. Always.",
+  },
+  {
+    label: "Plot Twist",
+    note: "Trust me, it looks cooler in person.",
+  },
+  {
+    label: "The Grind",
+    note: "Screenshots exist on my Google Drive, check the footer.",
+  },
+  {
+    label: "It's Alive",
+    note: "Once it's done done, you'll get the visuals. Pinky promise.",
+  },
+  {
+    label: "Fine Tuning",
+    note: "Not the most photogenic milestone tbh.",
+  },
+  {
+    label: "Fresh Start",
+    note: "New laptop, fresh start. Stay tuned.",
   },
 ];
 
-type MediaItem =
-  | { type: "image"; src: string; alt: string }
-  | { type: "video"; src: string }
-  | { type: "youtube"; id: string }
-  | null;
-
-type TimelineEntry = {
-  date: string;
-  title: string;
-  description: string;
-  media: MediaItem;
-};
-
-function Media({ media }: { media: MediaItem }) {
-  if (!media) {
-    return (
-      <div className="w-full aspect-video bg-[#1c1c1c] flex items-center justify-center">
-        <span className="text-[13px] text-[#525252] tracking-wide">Add media</span>
-      </div>
-    );
-  }
-  if (media.type === "image") {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={media.src} alt={media.alt} className="w-full aspect-video object-cover" />;
-  }
-  if (media.type === "video") {
-    return <video src={media.src} controls className="w-full aspect-video" />;
-  }
-  return (
-    <iframe
-      src={`https://www.youtube.com/embed/${media.id}`}
-      className="w-full aspect-video border-0"
-      allowFullScreen
-    />
-  );
-}
-
-const Divider = () => (
-  <hr className="border-none h-px bg-[#1f1f1f]" />
-);
+const Divider = () => <hr className="border-none h-px bg-[#1f1f1f]" />;
 
 export default function ProgressPage() {
+  const rows: (typeof entries)[] = [];
+  for (let i = 0; i < entries.length; i += 3) {
+    rows.push(entries.slice(i, i + 3));
+  }
+
   return (
     <>
       <Nav />
       <Divider />
 
       <main className="px-[120px] max-md:px-10 max-sm:px-5 py-[70px] max-sm:py-10">
-
         {/* Page heading */}
         <h1
           className="text-[#fafafa] font-normal leading-[1.2] mb-20 max-sm:mb-12"
@@ -97,45 +62,152 @@ export default function ProgressPage() {
           Progress
         </h1>
 
-        {/* Timeline */}
-        <div className="relative">
+        <p className="text-[14px] text-[#fafafa]/40 leading-[1.75] max-w-[520px] mb-16 max-sm:mb-10">
+          Yes, the images are missing. Most of
+          the visuals live on my{" "}
+          <a
+            href="https://docs.google.com/document/d/1Dl_-t2hCFhnAevpfKmGbAk_O1FkbCBMr/edit?usp=share_link&ouid=108901671150894161610&rtpof=true&sd=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#3B82F6] hover:underline"
+          >
+            Google Drive
+          </a>{" "}
+          . The rest got lost when my old laptop was stolen, so shoutout to whoever has
+          it. Anyway, the product matters more than pretty pictures of the
+          product. Once S.A.R.R.A is actually done, I&apos;ll make this page
+          worth looking at.
+        </p>
 
-          {/* Vertical connecting line */}
-          <div className="absolute left-[7px] top-2 bottom-0 w-px bg-[#525252] max-sm:left-[5px]" />
+        {/* Connected gallery — desktop */}
+        <div className="hidden sm:block">
+          {rows.map((row, ri) => (
+            <div key={ri}>
+              {/* Row */}
+              <div className="relative">
+                {/* Horizontal connecting line across the dots */}
+                <div
+                  className="absolute h-px bg-[#333]"
+                  style={{
+                    top: 5,
+                    left: "calc(100% / 6)",
+                    right: "calc(100% / 6)",
+                  }}
+                />
 
-          <div className="flex flex-col gap-0">
-            {entries.map((entry, i) => (
-              <div key={i} className="relative flex gap-10 max-sm:gap-5 pb-20 max-sm:pb-12 last:pb-0">
+                {/* 3-column grid */}
+                <div className="grid grid-cols-3">
+                  {row.map((entry, ci) => (
+                    <div key={ci} className="flex flex-col items-center px-4">
+                      {/* Dot */}
+                      <div className="w-[10px] h-[10px] rounded-full border border-[#525252] bg-[#111] relative z-10" />
 
-                {/* Dot on the line */}
-                <div className="relative z-10 mt-[6px] shrink-0">
-                  <div className="w-[15px] h-[15px] max-sm:w-[11px] max-sm:h-[11px] border border-[#525252] bg-[#111]" />
+                      {/* Stem */}
+                      <div className="w-px h-3 bg-[#333]" />
+
+                      {/* Label tag */}
+                      <div className="bg-[#1a1a1a] border border-[#222] px-3 py-1 mb-2">
+                        <span className="text-[11px] text-[#fafafa]/60 whitespace-nowrap">
+                          {entry.label}
+                        </span>
+                      </div>
+
+                      {/* Image placeholder */}
+                      <div className="relative w-full max-w-[220px] aspect-[4/3] bg-[#1a1a1a] border border-[#222] overflow-hidden">
+                        <div
+                          className="absolute left-0 w-full h-px bg-[#3B82F6]/20 pointer-events-none"
+                          style={{
+                            animation: `scanLine 4s ease-in-out ${(ri * 3 + ci) * 0.4}s infinite`,
+                          }}
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#333"
+                            strokeWidth="1"
+                          >
+                            <rect x="3" y="3" width="18" height="18" rx="1" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="M21 15l-5-5L5 21" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Note */}
+                      <p className="text-[12px] text-[#fafafa]/30 leading-relaxed mt-2 text-center max-w-[200px]">
+                        {entry.note}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-
-                {/* Content */}
-                <div className="flex-1 flex flex-col gap-6 max-w-[720px]">
-                  <div className="flex items-baseline gap-4 flex-wrap">
-                    <span className="text-[13px] text-[#525252]">{entry.date}</span>
-                    <h2 className="text-[20px] max-sm:text-[17px] text-[#fafafa] font-normal leading-snug">
-                      {entry.title}
-                    </h2>
-                  </div>
-
-                  {/* Media */}
-                  <div className="w-full max-w-[600px]">
-                    <Media media={entry.media} />
-                  </div>
-
-                  <p className="text-[15px] text-[#fafafa]/70 leading-relaxed max-w-[560px]">
-                    {entry.description}
-                  </p>
-                </div>
-
               </div>
+
+              {/* Vertical connector to next row */}
+              {ri < rows.length - 1 && (
+                <div className="relative h-12">
+                  <div
+                    className="absolute top-0 bottom-0 w-px bg-[#333]"
+                    style={{
+                      left:
+                        ri % 2 === 0
+                          ? "calc(100% * 5 / 6)"
+                          : "calc(100% / 6)",
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile — simple vertical list */}
+        <div className="sm:hidden flex flex-col gap-8">
+          {entries.map((entry, i) => (
+            <div key={i} className="flex flex-col items-start gap-2">
+              <div className="flex items-center gap-2">
+                <div className="w-[8px] h-[8px] rounded-full border border-[#525252] bg-[#111]" />
+                <span className="text-[12px] text-[#fafafa]/60">{entry.label}</span>
+              </div>
+              <div className="relative w-full aspect-[4/3] bg-[#1a1a1a] border border-[#222] overflow-hidden ml-4">
+                <div
+                  className="absolute left-0 w-full h-px bg-[#3B82F6]/20 pointer-events-none"
+                  style={{ animation: `scanLine 4s ease-in-out ${i * 0.4}s infinite` }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="1">
+                    <rect x="3" y="3" width="18" height="18" rx="1" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="M21 15l-5-5L5 21" />
+                  </svg>
+                </div>
+              </div>
+              <p className="text-[12px] text-[#fafafa]/30 leading-relaxed ml-4">
+                {entry.note}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Continue indicator */}
+        <div className="mt-14 flex items-center gap-3">
+          <span className="text-[13px] text-[#525252] italic tracking-wide">
+            Continue
+          </span>
+          <div className="flex items-center gap-1.5">
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className="block w-1 h-1 rounded-full bg-[#3B82F6]"
+                style={{
+                  animation: `dotPulse 1.8s ease-in-out ${i * 0.25}s infinite`,
+                }}
+              />
             ))}
           </div>
         </div>
-
       </main>
 
       <Divider />
