@@ -114,12 +114,6 @@ export default function ProgressPage() {
 
                       {/* Image placeholder */}
                       <div className="relative w-full max-w-[220px] aspect-[4/3] bg-[#1a1a1a] border border-[#222] overflow-hidden">
-                        <div
-                          className="absolute left-0 w-full h-px bg-[#3B82F6]/20 pointer-events-none"
-                          style={{
-                            animation: `scanLine 4s ease-in-out ${(ri * 3 + ci) * 0.4}s infinite`,
-                          }}
-                        />
                         <div className="absolute inset-0 flex items-center justify-center">
                           <svg
                             width="20"
@@ -172,10 +166,6 @@ export default function ProgressPage() {
                 <span className="text-[12px] text-[#fafafa]/60">{entry.label}</span>
               </div>
               <div className="relative w-full aspect-[4/3] bg-[#1a1a1a] border border-[#222] overflow-hidden ml-4">
-                <div
-                  className="absolute left-0 w-full h-px bg-[#3B82F6]/20 pointer-events-none"
-                  style={{ animation: `scanLine 4s ease-in-out ${i * 0.4}s infinite` }}
-                />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="1">
                     <rect x="3" y="3" width="18" height="18" rx="1" />
