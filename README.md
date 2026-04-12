@@ -6,6 +6,8 @@ S.A.R.R.A is a robotic hand that mirrors the movement of a real human hand in re
 
 I started this in my second year of undergrad (2023) as a research project exploring how vision-based control could make assistive robotic technology more accessible for rehabilitation. Life happened — I was broke, the academic workload was heavier than I expected, and I had to put it on pause. Now I'm back, picking up where I left off and pushing it further.
 
+Right-Hand
+
 ## Table of Contents
 
 - [S.A.R.R.A](#sarra)
