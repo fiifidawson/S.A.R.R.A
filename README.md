@@ -24,7 +24,7 @@ Started in 2023 as an undergraduate research project, the goal is to explore how
 ## How it works
 
 ```
-camera ──▶ hand detector (MediaPipe) ──▶ gesture classifier ──▶ serial ──▶ Arduino ──▶ servos
+camera ──> hand detector (MediaPipe) ──> gesture classifier ──> serial ──> Arduino ──> servos
 ```
 
 | Layer | Stack |
@@ -94,7 +94,6 @@ camera ──▶ hand detector (MediaPipe) ──▶ gesture classifier ──�
 │   └── 📄 main.cpp
 ├── 📄 .gitignore
 ├── 📄 LICENSE
-├── 📄 README-V0.md
 └── 📄 README.md
 
 ```
