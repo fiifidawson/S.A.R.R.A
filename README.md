@@ -1,58 +1,91 @@
+<div align="center">
+
 # S.A.R.R.A
 
-**Semi-Autonomous Rehabilitation Robotic Arm**
+**Semi-Autonomous Rehabilitation Robotic Hand**
 
-S.A.R.R.A is a robotic hand that mirrors the movement of a real human hand in real time. A live camera records the user's hand, and a machine learning algorithm translates those gestures into precise mechanical movements across four degrees of freedom.
+<img src="docs/hand.svg" alt="S.A.R.R.A robotic hand" width="720" />
 
-I started this in my second year of undergrad (2023) as a research project exploring how vision-based control could make assistive robotic technology more accessible for rehabilitation. Life happened — I was broke, the academic workload was heavier than I expected, and I had to put it on pause. Now I'm back, picking up where I left off and pushing it further.
+[Website](https://sarra.dev) &nbsp;·&nbsp; [Progress](https://sarra.dev/progress) &nbsp;·&nbsp; [Build](https://sarra.dev/build)
 
-Right-Hand
+</div>
 
-## Table of Contents
+---
 
-- [S.A.R.R.A](#sarra)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Sources](#sources)
-  - [Documentation](#documentation)
+> Work in progress. Picking up where I left off after a long school-induced hiatus.
+> Some assets were lost - visuals and docs are being rebuilt.
 
-## Installation
+## What it is
 
-[Add instructions for installing the project, including any dependencies that need to be installed] - I know, I know I'm working on it
+S.A.R.R.A is a robotic hand that mirrors the movement of a real human hand in real time. A live camera captures the user's hand, a machine-learning model translates the gesture into joint targets, and an Arduino drives the servos across four degrees of freedom.
 
-## Usage
+Started in 2023 as an undergraduate research project, the goal is to explore how accessible, vision-based control can make assistive robotics more approachable for rehabilitation.
 
-[Add instructions for how to use the project, including any examples or screenshots if applicable] - Sigh, yep, still working on it.
+## How it works
 
-## Contributing
+```
+camera ──▶ hand detector (MediaPipe) ──▶ gesture classifier ──▶ serial ──▶ Arduino ──▶ servos
+```
 
-[Explain how others can contribute to the project, including guidelines for submitting pull requests or opening issues] - Yep....
+| Layer | Stack |
+|---|---|
+| Vision | OpenCV, MediaPipe Hands |
+| ML | Custom gesture classifier on 21-keypoint landmarks |
+| Control | Arduino Uno R3, servo PWM via digital pins |
+| Mechanics | InMoov hand (PLA), MG996R servos |
+
+## Hardware
+
+<table>
+<tr>
+<td><b>Arduino Uno R3</b><br/><sub>Microcontroller — reads input, drives PWM</sub></td>
+<td><b>MG996R Servos</b><br/><sub>High-torque actuation per finger joint</sub></td>
+</tr>
+<tr>
+<td><b>10 kΩ Potentiometers</b><br/><sub>Analogue feedback (A0, A1)</sub></td>
+<td><b>L298N Motor Driver</b><br/><sub>H-bridge for direction & speed</sub></td>
+</tr>
+<tr>
+<td><b>InMoov Hand</b><br/><sub>3D-printed PLA chassis (Gael Langevin)</sub></td>
+<td><b>USB Webcam</b><br/><sub>Live frames into the gesture pipeline</sub></td>
+</tr>
+<tr>
+<td><b>Battery</b><br/><sub>Portable power for untethered operation</sub></td>
+<td><b>Jumper Wires & Breadboard</b><br/><sub>Prototyping</sub></td>
+</tr>
+</table>
+
+## Repo layout
+
+```
+.
+├── cerebrum/
+│   └── Forearm/Forearm.ino     # Arduino servo control loop
+├── ml/
+│   └── gesture_pipeline.py     # Vision + gesture classification
+└── docs/                       # Sketches, schematics, references
+```
+
+## Status
+
+| | |
+|---|---|
+| Mechanical | InMoov hand printed, assembled |
+| Hardware  | Wired and bench-tested |
+| Firmware  | Servo control loop working |
+| ML        | Gesture pipeline — rebuilding |
+| Docs      | In progress |
+
+## References
+
+- [InMoov Hand & Forearm](https://inmoov.fr/hand-and-forarm/) — Gael Langevin
+- [Arduino Robot Arm](https://github.com/EbenKouao/arduino-robot-arm) — Eben Kouao
+- [Arduino Project Hub: Robotic Arm](https://projecthub.arduino.cc/zezarandrade/c9d53b71-0422-41dd-bda1-00d4899583f0) — zezarandrade
 
 ## License
 
-MIT License
+TBD.
 
-## Sources
+---
 
-The following sources were used in the creation of this project:
-
-- File 1: [zezarandrade](https://projecthub.arduino.cc/zezarandrade/c9d53b71-0422-41dd-bda1-00d4899583f0)
-- File 2: [Eben Kouao](https://github.com/EbenKouao/arduino-robot-arm)
-- File 3: [Murtaza](https://youtu.be/gmz7eOB-tCg?list=PLV6c2pjMaD-BgyZCI-ZzW3UFjEemPFAfD)
-- File 4: [Gael Langevin](https://inmoov.fr/hand-and-forarm/?doing_wp_cron=1680974540.8794040679931640625000)
-
-The following YouTube videos were referenced in the creation of this project:
-
-- Video 1: [Robotic Arm Controlled by Human Arm](https://youtu.be/XZ63bZIfIoc)
-- Video 2: [DIY Arduino Robot Arm - Controlled by Hand Gestures | Full Tutorial](https://youtu.be/F0ZvF-FbCr0) 
-- Video 3: [Robot Arm Arduino Tutorial](https://youtu.be/gmz7eOB-tCg?list=PLV6c2pjMaD-BgyZCI-ZzW3UFjEemPFAfD)
-
-## Documentation
-
-[View the project documentation in Google Docs](https://docs.google.com/document/d/1Dl_-t2hCFhnAevpfKmGbAk_O1FkbCBMr/edit?usp=share_link&ouid=108901671150894161610&rtpof=true&sd=true)
-
-
-**Media:** (Link)[https://photos.app.goo.gl/aRC46F4Bb7mRoZjU6]
+<sub>Built by [@fiifidawson](https://github.com/fiifidawson). Full project context lives on the [website](https://sarra.dev).</sub>
