@@ -6,7 +6,7 @@
 
 <img src="docs/hand.svg" alt="S.A.R.R.A robotic hand" width="720" />
 
-[Website](https://sarra.dev) &nbsp;·&nbsp; [Progress](https://sarra.dev/progress) &nbsp;·&nbsp; [Build](https://sarra.dev/build)
+[Website](https://sarra-nine.vercel.app/) &nbsp;·&nbsp; [Progress](https://sarra-nine.vercel.app/progress) &nbsp;·&nbsp; [Build](https://sarra-nine.vercel.app/build)
 
 </div>
 
@@ -68,11 +68,11 @@ camera ──▶ hand detector (MediaPipe) ──▶ gesture classifier ──�
 
 ## Status
 
-| | |
+|Phase |Status |
 |---|---|
-| Mechanical | InMoov hand printed, assembled |
-| Hardware  | Wired and bench-tested |
-| Firmware  | Servo control loop working |
+| Mechanical | InMoov hand printed |
+| Hardware  | In progress |
+| Firmware  | In progress |
 | ML        | Gesture pipeline — rebuilding |
 | Docs      | In progress |
 
@@ -84,8 +84,8 @@ camera ──▶ hand detector (MediaPipe) ──▶ gesture classifier ──�
 
 ## License
 
-TBD.
+MIT
 
 ---
 
-<sub>Built by [@fiifidawson](https://github.com/fiifidawson). Full project context lives on the [website](https://sarra.dev).</sub>
+<sub>Built by [@fiifidawson](https://github.com/fiifidawson). Full project context lives on the [website](https://sarra-nine.vercel.app/).</sub>
