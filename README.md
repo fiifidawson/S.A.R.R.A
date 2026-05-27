@@ -58,12 +58,45 @@ camera ──▶ hand detector (MediaPipe) ──▶ gesture classifier ──�
 ## Repo layout
 
 ```
-.
-├── cerebrum/
-│   └── Forearm/Forearm.ino     # Arduino servo control loop
-├── ml/
-│   └── gesture_pipeline.py     # Vision + gesture classification
-└── docs/                       # Sketches, schematics, references
+📁 S.A.R.R.A/
+├── 📁 docs/
+│   └── 🖼️ hand.svg
+├── 📁 electronics/
+│   └── 📄 DESCRIPTION.md
+├── 📁 mechanical/
+│   ├── 📁 fingers/
+│   │   ├── 📄 Auriculaire3.stl
+│   │   ├── 📄 Index3.stl
+│   │   ├── 📄 Majeure3.stl
+│   │   ├── 📄 ringfinger3.stl
+│   │   └── 📄 thumb5.stl
+│   ├── 📁 forearm/
+│   │   ├── 📄 robpart2V4.stl
+│   │   ├── 📄 robpart3V4.stl
+│   │   ├── 📄 robpart4V4.stl
+│   │   └── 📄 robpart5V4.stl
+│   ├── 📁 servobed/
+│   │   ├── 📄 RobCableBackV3.stl
+│   │   ├── 📄 RobCableFrontV3.stl
+│   │   ├── 📄 RobRingV3.stl
+│   │   ├── 📄 RobServoBedV6.stl
+│   │   ├── 📄 servo-pulleyX5.stl
+│   │   └── 📄 TensionerRightV1.stl
+│   └── 📁 wrist/
+│       ├── 📄 CableHolderWristV5.stl
+│       ├── 📄 RotaWrist1V4.stl
+│       ├── 📄 RotaWrist2V3.stl
+│       ├── 📄 RotaWrist3V3.stl
+│       └── 📄 WristGearsV5.stl
+├── 📁 software/
+│   ├── 📁 Forearm/
+│   │   └── 📄 Forearm.ino
+│   └── 📄 main.cpp
+├── 📄 .gitignore
+├── 📄 LICENSE
+├── 📄 README-V0.md
+└── 📄 README.md
+
 ```
 
 ## Status
@@ -84,7 +117,7 @@ camera ──▶ hand detector (MediaPipe) ──▶ gesture classifier ──�
 
 ## License
 
-MIT
+MIT License
 
 ---
 
